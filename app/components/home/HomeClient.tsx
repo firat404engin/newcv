@@ -47,12 +47,12 @@ const FloatingParticle = ({ size, color, delay, duration, xRange, yRange }: any)
 interface HomeClientProps {
   lang: Locale;
   dict: ReturnType<typeof getDictionary>;
-  projects: Project[];
+  projects?: Project[];
   skills: Skill[];
   timelineItems: TimelineItem[];
 }
 
-export default function HomeClient({ lang, dict, projects, skills, timelineItems }: HomeClientProps) {
+export default function HomeClient({ lang, dict, skills, timelineItems }: HomeClientProps) {
   const router = useRouter();
   const { scrollYProgress } = useScroll();
   const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
@@ -358,7 +358,7 @@ export default function HomeClient({ lang, dict, projects, skills, timelineItems
         {/* Diğer Bölümler */}
         <div className="futuristic-container mx-auto w-full">
           <AboutSection dict={dict} />
-          <ProjectsSection dict={dict} projects={projects} />
+          <ProjectsSection dict={dict} />
           <SkillsSection dict={dict} skills={skills} />
           <TimelineSection dict={dict} timelineItems={timelineItems} lang={lang} />
           {/* Footer */}

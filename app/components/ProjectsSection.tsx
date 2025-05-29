@@ -6,90 +6,21 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { ExternalLink, Github, Hash, Layers } from 'lucide-react';
 import Image from 'next/image';
+import { useParams } from 'next/navigation';
+import { getDictionary } from '../../lib/i18n';
+import { Locale } from '../../lib/i18n';
 
 interface ProjectsSectionProps {
   dict: any;
-  projects?: Project[];
 }
 
-const ProjectsSection: React.FC<ProjectsSectionProps> = ({ dict, projects = [] }) => {
-  // Varsayılan projeler (props olarak gelmezse)
-  const defaultProjects: Project[] = useMemo(() => [
-    {
-      id: 1,
-      title: 'Modern E-Ticaret Platformu',
-      description: 'Next.js ile geliştirilmiş, tam kapsamlı bir e-ticaret çözümü. API entegrasyonları, ödeme işlemleri ve kullanıcı yönetimi bulunuyor.',
-      category: 'Web',
-      tech_stack: ['React', 'Next.js', 'Tailwind CSS', 'MongoDB', 'Stripe'],
-      github_link: 'https://github.com/username/ecommerce-platform',
-      demo_link: 'https://ecommerce-demo.example.com',
-      created_at: new Date().toISOString(),
-      imageUrl: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=2070&auto=format&fit=crop',
-      tags: ['E-ticaret', 'Full-Stack', 'Responsive']
-    },
-    {
-      id: 2,
-      title: 'Mobil Fitness Uygulaması',
-      description: 'Kişiselleştirilmiş fitness planları sunan ve kullanıcı gelişimini takip eden kapsamlı bir mobil uygulama.',
-      category: 'Mobil',
-      tech_stack: ['React Native', 'Firebase', 'Redux', 'Expo'],
-      github_link: 'https://github.com/username/fitness-app',
-      created_at: new Date().toISOString(),
-      imageUrl: 'https://images.unsplash.com/photo-1579126038374-6064e9370f0f?q=80&w=1932&auto=format&fit=crop',
-      tags: ['Fitness', 'Mobil', 'Health-Tech']
-    },
-    {
-      id: 3,
-      title: 'Yapay Zeka Destekli Veri Analiz Aracı',
-      description: 'Karmaşık veri setlerini analiz eden ve görselleştiren, makine öğrenimi algoritmaları kullanan web uygulaması.',
-      category: 'Veri Bilimi',
-      tech_stack: ['Python', 'TensorFlow', 'React', 'Flask', 'D3.js'],
-      github_link: 'https://github.com/username/ai-data-analyzer',
-      demo_link: 'https://ai-analyzer.example.com',
-      created_at: new Date().toISOString(),
-      imageUrl: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop',
-      tags: ['Yapay Zeka', 'Veri Analizi', 'ML']
-    },
-    {
-      id: 4,
-      title: 'Kişisel Finans Yönetim Sistemi',
-      description: 'Gelir-gider takibi, bütçe planlaması ve finansal hedefler için geliştirilmiş modern bir web uygulaması.',
-      category: 'Web',
-      tech_stack: ['Vue.js', 'Node.js', 'Express', 'PostgreSQL', 'Chart.js'],
-      github_link: 'https://github.com/username/finance-manager',
-      demo_link: 'https://finance-app.example.com',
-      created_at: new Date().toISOString(),
-      imageUrl: 'https://images.unsplash.com/photo-1565514020179-026b92b2d70b?q=80&w=2070&auto=format&fit=crop',
-      tags: ['Finans', 'Dashboard', 'CRUD']
-    },
-    {
-      id: 5,
-      title: 'Blockchain Tabanlı Oyun Platformu',
-      description: 'NFT entegrasyonlu, blok zinciri altyapısını kullanan, çok oyunculu oyun deneyimi sunan platform.',
-      category: 'Blockchain',
-      tech_stack: ['Solidity', 'Ethereum', 'React', 'Web3.js', 'Three.js'],
-      github_link: 'https://github.com/username/blockchain-game',
-      demo_link: 'https://crypto-game.example.com',
-      created_at: new Date().toISOString(),
-      imageUrl: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2065&auto=format&fit=crop',
-      tags: ['Blockchain', 'NFT', 'Web3', 'Oyun']
-    },
-    {
-      id: 6,
-      title: 'Akıllı Ev Otomasyon Sistemi',
-      description: 'IoT cihazlarını kontrol eden, ses komutlarıyla çalışan ve enerji verimliliği sağlayan akıllı ev çözümü.',
-      category: 'IoT',
-      tech_stack: ['Arduino', 'Raspberry Pi', 'MQTT', 'React', 'Node.js'],
-      github_link: 'https://github.com/username/smart-home',
-      created_at: new Date().toISOString(),
-      imageUrl: 'https://images.unsplash.com/photo-1585032767761-878270336a0e?q=80&w=2070&auto=format&fit=crop',
-      tags: ['IoT', 'Smart Home', 'Otomasyon']
-    }
-  ], []);
-
-  const displayProjects = useMemo(() => 
-    projects.length > 0 ? projects : defaultProjects
-  , [projects, defaultProjects]);
+const ProjectsSection: React.FC<ProjectsSectionProps> = ({ dict }) => {
+  // Dil parametresini alma
+  const params = useParams();
+  const locale = (params.locale as Locale) || 'tr';
+  
+  // Dile göre projeleri alma
+  const projects = useMemo(() => dict.home.projects.items, [dict]);
   
   // Badge renk haritası
   const getBadgeColor = useCallback((tech: string) => {
@@ -186,16 +117,16 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ dict, projects = [] }
   // Placeholder görsel URL - Memo'lu versiyon
   const getPlaceholderImage = useCallback((category: string) => {
     const placeholders = {
-      'Web': 'https://images.unsplash.com/photo-1581276879432-15e50529f34b?q=80&w=2070&auto=format&fit=crop',
-      'Mobil': 'https://images.unsplash.com/photo-1551650975-87deedd944c3?q=80&w=1974&auto=format&fit=crop',
+      'Web': 'https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=2128&auto=format&fit=crop',
+      'Mobil': 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=2070&auto=format&fit=crop',
       'Masaüstü': 'https://images.unsplash.com/photo-1537432376769-00f5c2f4c8d2?q=80&w=1925&auto=format&fit=crop',
-      'Yapay Zeka': 'https://images.unsplash.com/photo-1535378917042-10a22c95931a?q=80&w=2066&auto=format&fit=crop',
-      'Veri Bilimi': 'https://images.unsplash.com/photo-1518186285589-2f7649de83e0?q=80&w=2074&auto=format&fit=crop',
+      'Yapay Zeka': 'https://images.unsplash.com/photo-1677442135136-760c813dea9b?q=80&w=2070&auto=format&fit=crop',
+      'Veri Bilimi': 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop',
       'Blockchain': 'https://images.unsplash.com/photo-1639762681057-408e52192e55?q=80&w=2032&auto=format&fit=crop',
       'IoT': 'https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?q=80&w=2070&auto=format&fit=crop',
     };
     
-    return placeholders[category] || 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?q=80&w=2076&auto=format&fit=crop';
+    return placeholders[category] || 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=2072&auto=format&fit=crop';
   }, []);
 
   // Lazy loading ile proje kartları
@@ -319,7 +250,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ dict, projects = [] }
           animate={inView ? "visible" : "hidden"}
           className="space-y-10"
         >
-          {displayProjects.map(renderProjectCard)}
+          {projects.map(renderProjectCard)}
         </motion.div>
       </div>
     </section>

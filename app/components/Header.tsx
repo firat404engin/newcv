@@ -137,7 +137,7 @@ export default function Header({ lang }: HeaderProps) {
       {/* Masaüstü için Dairesel Menü */}
       <div className="fixed top-0 right-0 z-50 hidden lg:flex gap-4 p-6">
         <a 
-          href="https://github.com/yourusername" 
+          href="https://github.com/firat404engin" 
           target="_blank" 
           rel="noopener noreferrer"
           className="w-10 h-10 rounded-full bg-black/60 backdrop-blur-md border border-white/10 flex items-center justify-center text-white/70 hover:text-primary-400 transition-all duration-300"
@@ -146,7 +146,7 @@ export default function Header({ lang }: HeaderProps) {
           <Github size={18} />
         </a>
         <a 
-          href="https://linkedin.com/in/yourusername" 
+          href="https://www.linkedin.com/in/firatengin404/" 
           target="_blank" 
           rel="noopener noreferrer"
           className="w-10 h-10 rounded-full bg-black/60 backdrop-blur-md border border-white/10 flex items-center justify-center text-white/70 hover:text-primary-400 transition-all duration-300"
@@ -234,7 +234,7 @@ export default function Header({ lang }: HeaderProps) {
                   {/* Sosyal Linkler */}
                   <div className="flex justify-center space-x-4 pt-2">
                     <a 
-                      href="https://github.com/yourusername" 
+                      href="https://github.com/firat404engin" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="w-10 h-10 rounded-full bg-dark-lighter/40 border border-white/10 flex items-center justify-center text-white/70 hover:text-primary-400 hover:border-primary-500/50 transition-all duration-300"
@@ -242,7 +242,7 @@ export default function Header({ lang }: HeaderProps) {
                       <Github size={18} />
                     </a>
                     <a 
-                      href="https://linkedin.com/in/yourusername" 
+                      href="https://www.linkedin.com/in/firatengin404/" 
                       target="_blank" 
                       rel="noopener noreferrer" 
                       className="w-10 h-10 rounded-full bg-dark-lighter/40 border border-white/10 flex items-center justify-center text-white/70 hover:text-primary-400 hover:border-primary-500/50 transition-all duration-300"

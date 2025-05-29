@@ -41,7 +41,7 @@ export default function AboutSection({ dict }: AboutSectionProps) {
     role: "Computer Engineer",
     location: "Türkiye",
     experience: 5,
-    education: "Computer Engineering, XYZ University",
+    education: "Computer Engineering, Namik Kemal University",
     stack: [
       "JavaScript/TypeScript",
       "React",
@@ -148,9 +148,9 @@ ${me.stack.map(tech => `    "${tech}"`).join(',\n')}
 ${me.interests.map(interest => `    "${interest}"`).join(',\n')}
   ],
   contact: {
-    email: "hello@example.com",
-    github: "github.com/yourusername",
-    linkedin: "linkedin.com/in/yourusername"
+    email: "fengin7321@gmail.com",
+    github: "https://github.com/firat404engin",
+    linkedin: "https://www.linkedin.com/in/firatengin404/"
   }
 }`}
                 </code>
@@ -173,4 +173,4 @@ ${me.interests.map(interest => `    "${interest}"`).join(',\n')}
       </div>
     </section>
   );
-} 
+}

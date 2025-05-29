@@ -84,7 +84,7 @@ const TimelineSection: React.FC<TimelineSectionProps> = ({ dict, timelineItems =
       name: 'Bayram ELPE',
       title: 'Yazılım Uzmanı, SERANİT',
       email: 'bayramelpe1@gmail.com',
-      photoUrl: 'https://i.hizliresim.com/nfnn6f5.jpg?_gl=1*1xri4nc*_ga*MTIyODEzODcxNS4xNzQxMjA2NDQw*_ga_M9ZRXYS2YN*czE3NDg1MjU1ODckbzExJGcxJHQxNzQ4NTI1NjAxJGo0NiRsMCRoMA..'
+      photoUrl: 'https://i.hizliresim.com/hz19zoj.jpg?_gl=1*bvnirx*_ga*MTIyODEzODcxNS4xNzQxMjA2NDQw*_ga_M9ZRXYS2YN*czE3NDg1MzcwMTUkbzEzJGcxJHQxNzQ4NTM3MDQ1JGozMCRsMCRoMA..'
     },
     {
       id: 2,
@@ -239,22 +239,22 @@ const TimelineSection: React.FC<TimelineSectionProps> = ({ dict, timelineItems =
         className="relative"
       >
         {/* Zaman Noktası */}
-        <div className="absolute left-1/2 transform -translate-x-1/2 z-10">
+        <div className="absolute left-1/2 transform -translate-x-1/2 z-20 top-0 mt-1.5">
           <div className="w-4 h-4 rounded-full bg-[#6B8E23] border-4 border-zinc-900 shadow-glow-md" />
         </div>
         
         {/* İçerik */}
-        <div className={`flex flex-col md:flex-row gap-4 md:gap-8 items-center md:items-start ${isLeft ? 'md:flex-row' : 'md:flex-row-reverse'} w-full`}>
+        <div className={`flex flex-col md:flex-row gap-4 md:gap-8 items-center md:items-start ${isLeft ? 'md:flex-row' : 'md:flex-row-reverse'} w-full pt-8 md:pt-0`}>
           {/* Tarih */}
           <div className={`flex flex-col items-center ${isLeft ? 'md:items-end' : 'md:items-start'} w-full md:w-[120px]`}>
-            <span className="text-sm font-bold text-green-300 bg-zinc-800 px-3 py-1 rounded-full mb-2 md:mb-0">
+            <span className="text-sm font-bold text-green-300 bg-zinc-800 px-3 py-1 rounded-full mb-4 md:mb-0 z-10">
               {yearDisplay}
             </span>
           </div>
           
           {/* Kart */}
           <motion.div
-            className="bg-zinc-800 p-4 md:p-5 rounded-lg shadow-md border border-zinc-700 w-full md:w-[calc(100%-140px)] hover:scale-[1.02] hover:shadow-lg transition-all duration-300"
+            className="bg-zinc-800 p-4 md:p-5 rounded-lg shadow-md border border-zinc-700 w-full md:w-[calc(100%-140px)] md:mt-4 hover:scale-[1.02] hover:shadow-lg transition-all duration-300"
             whileHover={{ boxShadow: "0 0 20px 2px rgba(107, 142, 35, 0.15)" }}
           >
             <div className="flex items-start justify-between mb-3 flex-wrap gap-2">

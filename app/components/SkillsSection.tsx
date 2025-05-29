@@ -103,13 +103,13 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({ dict, skills = [] }) => {
         {categories.map(category => (
           <div 
             key={category}
-            className="px-4 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/10 flex items-center gap-2"
+            className="md:min-w-[140px] px-2 text-center md:text-left py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/10 flex items-center gap-2"
           >
             <div 
               className="w-3 h-3 rounded-full" 
               style={{ backgroundColor: getColorByType(category) }}
             ></div>
-            <span className="text-white font-medium text-sm">{category}</span>
+            <span className="text-white font-medium text-xs sm:text-sm whitespace-nowrap">{category}</span>
           </div>
         ))}
       </div>
@@ -143,12 +143,12 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({ dict, skills = [] }) => {
 
   // Hover optimizasyonu ile birlikte beceri badge'leri
   const SkillBadges = useMemo(() => (
-    <div className="mt-8 mb-4 flex flex-wrap gap-2 justify-center">
+    <div className="mt-8 mb-4 flex flex-wrap gap-4 justify-center">
       {displaySkills.map(skill => (
         <motion.div
           key={skill.id}
-          className={`px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/10 
-            ${hoveredSkill === skill.name ? 'border-[#6B8E23]' : ''}`}
+          className={`whitespace-nowrap text-xs sm:text-sm px-3 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/10 
+            ${hoveredSkill === skill.name ? 'border-[#6B8E23]' : ''} mb-1 sm:mb-0`}
           whileHover={{ 
             scale: 1.05,
             borderColor: 'rgba(107, 142, 35, 0.8)',
@@ -158,13 +158,15 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({ dict, skills = [] }) => {
           onMouseEnter={() => handleMouseEnter(skill.name)}
           onMouseLeave={handleMouseLeave}
         >
-          <div className="flex items-center gap-2">
-            <div 
-              className="w-2 h-2 rounded-full" 
-              style={{ backgroundColor: getColorByType(skill.type) }}
-            ></div>
-            <span className="text-white text-sm font-medium">{skill.name}</span>
-            <span className="text-xs font-semibold px-1.5 py-0.5 bg-[#6B8E23]/20 rounded-md text-green-300">
+          <div className="flex items-center gap-2.5 justify-between">
+            <div className="flex items-center gap-2">
+              <div 
+                className="w-2 h-2 rounded-full flex-shrink-0" 
+                style={{ backgroundColor: getColorByType(skill.type) }}
+              ></div>
+              <span className="text-white font-medium">{skill.name}</span>
+            </div>
+            <span className="font-semibold px-1.5 py-0.5 bg-[#6B8E23]/20 rounded-md text-green-300 flex-shrink-0 ml-1.5">
               {skill.level * 10}%
             </span>
           </div>
@@ -252,10 +254,10 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({ dict, skills = [] }) => {
           </h2>
         </div>
         
-        <div className="bg-black/60 backdrop-blur-md border border-white/10 rounded-xl p-6 transition-all duration-300 hover:border-[#6B8E23]/30">
+        <div className="bg-black/60 backdrop-blur-md border border-white/10 rounded-xl p-4 sm:p-6 transition-all duration-300 hover:border-[#6B8E23]/30">
           {CategoryBadges}
           
-          <div className="h-[500px] w-full">
+          <div className="h-[400px] sm:h-[500px] w-full">
             {renderRadarChart}
           </div>
           

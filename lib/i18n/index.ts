@@ -51,6 +51,18 @@ export interface Dictionary {
       };
       viewLive: string;
       viewCode: string;
+      items: Array<{
+        id: number;
+        title: string;
+        description: string;
+        category: string;
+        tech_stack: string[];
+        github_link: string;
+        demo_link?: string;
+        created_at: string;
+        imageUrl: string;
+        tags?: string[];
+      }>;
     };
     skills: {
       title: string;
@@ -149,7 +161,7 @@ export const getDictionary = (locale: Locale): Dictionary => {
 const dictionaries: Record<Locale, Dictionary> = {
   tr: {
     common: {
-      title: 'Kişisel CV',
+      title: 'FIRAT ENGIN',
       description: 'Bilgisayar Mühendisi kişisel web sitesi',
       welcome: 'Hoş Geldiniz',
       about: 'Hakkımda',
@@ -195,12 +207,58 @@ const dictionaries: Record<Locale, Dictionary> = {
         },
         viewLive: 'Canlıyı Gör',
         viewCode: 'Kodu Gör',
+        items: [
+          {
+            id: 1,
+            title: 'E-Ticaret Web Sitesi',
+            description: 'Müşteri için ürün yönetimi, sepet sistemi ve güvenli ödeme entegrasyonu özelliklerine sahip, tamamen işlevsel ve duyarlı bir e-ticaret web sitesi geliştirdim.',
+            category: 'Mobil',
+            tech_stack: ['React Native', 'TypeScript', 'Redux', 'Firebase'],
+            github_link: 'https://github.com/firat404engin/fitness-tracker',
+            demo_link: 'https://mainticaret.vercel.app/',
+            created_at: '2022-11-05',
+            imageUrl: '/images/eticaret.png',
+          },
+          {
+            id: 2,
+            title: 'Vizyoner Bakış Danışmanlık',
+            description: 'Hizmet arama, randevu rezervasyonu ve güvenli iletişim formları içeren, tamamen duyarlı danışmanlık web sitesi.',
+            category: 'Web',
+            tech_stack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Supabase'],
+            github_link: 'https://github.com/firat404engin/vizyoner-website',
+            demo_link: 'https://www.vizyonerbakis.com.tr/',
+            created_at: '2023-08-15',
+            imageUrl: '/images/vizyoner.png',
+          },
+          {
+            id: 3,
+            title: 'Gerçek Zamanlı Deprem İzleyici',
+            description: 'Türkiye\'deki gerçek zamanlı deprem verilerini görselleştiren, kullanıcı dostu arayüze sahip, tamamen duyarlı bir web uygulaması geliştirdim.',
+            category: 'Web',
+            tech_stack: ['Vue.js', 'Firebase', 'WebSockets', 'Vuex'],
+            github_link: 'https://github.com/firat404engin/earthquake',
+            demo_link: 'https://earthquaketurkiye.vercel.app/',
+            created_at: '2023-02-10',
+            imageUrl: '/images/earthquaketurkiye.png',
+          },
+          {
+            id: 4,
+            title: 'Kişisel Portföy',
+            description: 'İnteraktif proje bölümleri ve kusursuz bir iletişim deneyimi sunan modern, mobil uyumlu kişisel portföy web sitesi tasarladım ve geliştirdim.',
+            category: 'Web',
+            tech_stack: ['React', 'Node.js', 'Express', 'MongoDB', 'OpenAI API'],
+            github_link: 'https://github.com/firat404engin/firatportfolio',
+            demo_link: 'https://firatengin-henna.vercel.app/',
+            created_at: '2023-05-22',
+            imageUrl: '/images/portfolio.png',
+          }
+        ]
       },
       skills: {
         title: 'Yeteneklerim',
-        description: 'Teknik yetenek ve bilgilerim',
-        frontend: 'Önyüz',
-        backend: 'Arkayüz',
+        description: 'Teknik becerilerim ve uzmanlık alanlarım',
+        frontend: 'Ön Uç Geliştirme',
+        backend: 'Arka Uç Geliştirme',
         tools: 'Araçlar',
       },
       timeline: {
@@ -268,15 +326,15 @@ const dictionaries: Record<Locale, Dictionary> = {
     },
     socials: {
       github: {
-        url: 'https://github.com/yourusername',
+        url: 'https://github.com/firat404engin',
         label: 'GitHub'
       },
       linkedin: {
-        url: 'https://linkedin.com/in/yourusername',
+        url: 'https://www.linkedin.com/in/firatengin404/',
         label: 'LinkedIn'
       },
       email: {
-        url: 'mailto:you@example.com',
+        url: 'mailto:fengin7321@gmail.com',
         label: 'E-posta'
       }
     }
@@ -329,12 +387,58 @@ const dictionaries: Record<Locale, Dictionary> = {
         },
         viewLive: 'View Live',
         viewCode: 'View Code',
+        items: [
+          {
+            id: 1,
+            title: 'Custom E-Commerce Website Development',
+            description: 'Developed a fully functional and responsive e-commerce website for a client, featuring product management, cart system, and secure checkout integration.',
+            category: 'Mobile',
+            tech_stack: ['React Native', 'TypeScript', 'Redux', 'Firebase'],
+            github_link: 'https://github.com/firat404engin/fitness-tracker',
+            demo_link: 'https://mainticaret.vercel.app/',
+            created_at: '2022-11-05',
+            imageUrl: '/images/eticaret.png',
+          },
+          {
+            id: 2,
+            title: 'Vizyoner Bakış Consulting',
+            description: 'Fully responsive consulting website with service search, appointment booking, and secure contact forms.',
+            category: 'Web',
+            tech_stack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Supabase'],
+            github_link: 'https://github.com/firat404engin/vizyoner-website',
+            demo_link: 'https://www.vizyonerbakis.com.tr/',
+            created_at: '2023-08-15',
+            imageUrl: '/images/vizyoner.png',
+          },
+          {
+            id: 3,
+            title: 'Real-time Earthquake Tracker',
+            description: 'Developed a fully responsive web application that visualizes real-time earthquake data in Turkey using public APIs, with an interactive and user-friendly interface.',
+            category: 'Web',
+            tech_stack: ['Vue.js', 'Firebase', 'WebSockets', 'Vuex'],
+            github_link: 'https://github.com/firat404engin/earthquake',
+            demo_link: 'https://earthquaketurkiye.vercel.app/',
+            created_at: '2023-02-10',
+            imageUrl: '/images/earthquaketurkiye.png',
+          },
+          {
+            id: 4,
+            title: 'Personal Portfolio',
+            description: 'Designed and developed a modern, mobile-friendly personal portfolio website featuring interactive project sections and a seamless contact experience.',
+            category: 'Web',
+            tech_stack: ['React', 'Node.js', 'Express', 'MongoDB', 'OpenAI API'],
+            github_link: 'https://github.com/firat404engin/firatportfolio',
+            demo_link: 'https://firatengin-henna.vercel.app/',
+            created_at: '2023-05-22',
+            imageUrl: '/images/portfolio.png',
+          }
+        ]
       },
       skills: {
         title: 'My Skills',
-        description: 'Technical skills and knowledge',
-        frontend: 'Frontend',
-        backend: 'Backend',
+        description: 'Technical skills and expertise',
+        frontend: 'Frontend Development',
+        backend: 'Backend Development',
         tools: 'Tools',
       },
       timeline: {
@@ -402,11 +506,11 @@ const dictionaries: Record<Locale, Dictionary> = {
     },
     socials: {
       github: {
-        url: 'https://github.com/yourusername',
+        url: 'github.com/firat404engin',
         label: 'GitHub'
       },
       linkedin: {
-        url: 'https://linkedin.com/in/yourusername',
+        url: 'www.linkedin.com/in/firatengin404',
         label: 'LinkedIn'
       },
       email: {

@@ -1,48 +1,5 @@
 import { Project, Skill, TimelineItem } from './types';
 
-// Mock Projects Data
-export const mockProjects: Project[] = [
-  {
-    id: 1,
-    title: 'Modern E-commerce Platform',
-    description: 'Fully responsive e-commerce solution with product search, cart functionality, and secure checkout.',
-    category: 'Web',
-    tech_stack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Supabase'],
-    github_link: 'https://github.com/yourusername/ecommerce',
-    demo_link: 'https://demo-ecommerce.example.com',
-    created_at: '2023-08-15',
-  },
-  {
-    id: 2,
-    title: 'AI-Powered Task Manager',
-    description: 'Task management app with AI-based prioritization and smart reminders. Features include voice commands and natural language processing.',
-    category: 'Web',
-    tech_stack: ['React', 'Node.js', 'Express', 'MongoDB', 'OpenAI API'],
-    github_link: 'https://github.com/yourusername/ai-tasks',
-    demo_link: 'https://ai-tasks.example.com',
-    created_at: '2023-05-22',
-  },
-  {
-    id: 3,
-    title: 'Real-time Chat Application',
-    description: 'Chat app with real-time messaging, user presence indicators, and file sharing. Supports group chats and private conversations.',
-    category: 'Web',
-    tech_stack: ['Vue.js', 'Firebase', 'WebSockets', 'Vuex'],
-    github_link: 'https://github.com/yourusername/chat-app',
-    demo_link: 'https://chat-app.example.com',
-    created_at: '2023-02-10',
-  },
-  {
-    id: 4,
-    title: 'Mobile Fitness Tracker',
-    description: 'Cross-platform mobile app for tracking workouts, nutrition, and personal fitness goals with custom analytics dashboards.',
-    category: 'Mobil',
-    tech_stack: ['React Native', 'TypeScript', 'Redux', 'Firebase'],
-    github_link: 'https://github.com/yourusername/fitness-tracker',
-    created_at: '2022-11-05',
-  },
-];
-
 // Mock Skills Data
 export const mockSkills: Skill[] = [
   { id: 1, name: "JavaScript", level: 9, type: "Frontend", created_at: "2023-01-01" },
