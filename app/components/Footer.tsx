@@ -156,13 +156,13 @@ export default function Footer({ dict }: FooterProps) {
             <ul className="space-y-3">
               <li>
                 <a 
-                  href="mailto:fengin7321@gmail.comxample.com" 
+                  href="mailto:fengin7321@gmail.com" 
                   className="text-zinc-400 hover:text-[#6B8E23] text-sm transition-colors duration-200 flex items-center group"
                 >
                   <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-zinc-800 group-hover:bg-[#6B8E23]/20 mr-3 transition-colors duration-200">
                     <EmailIcon />
                   </span>
-                  fengin7321@gmail.comxample.com
+                  fengin7321@gmail.com
                 </a>
               </li>
               <li>

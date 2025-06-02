@@ -90,14 +90,14 @@ const TimelineSection: React.FC<TimelineSectionProps> = ({ dict, timelineItems =
       id: 2,
       name: 'Ayşe Kaya',
       title: 'Proje Yöneticisi, DEF Yazılım',
-      email: 'ayse.kaya@example.com',
+      email: 'ayse.kaya@gmail.com',
       photoUrl: 'https://randomuser.me/api/portraits/women/44.jpg'
     },
     {
       id: 3,
       name: 'Mehmet Demir',
-      title: 'Öğretim Üyesi, ABC Üniversitesi',
-      email: 'mehmet.demir@example.com',
+      title: 'Öğretim Üyesi, Massachusetts Teknoloji Enstitüsü',
+      email: 'mehmet.demir@gmail.com',
       photoUrl: 'https://randomuser.me/api/portraits/men/68.jpg'
     }
   ], []);
